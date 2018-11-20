@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路聲量觀測平台</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico">
+
+    <!-- css style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssReset.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/keyword.css')}}">
+
+    <!-- jQuery 1.9.0 -->
+    <script type=text/javascript src="{{ url_for('static', filename='js/jquery-1.9.0.js')}}"></script>
+    <!-- google chartsAPI -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- wordCloud API-->
+    <script type=text/javascript src="{{ url_for('static', filename='js/wordcloud2.js')}}"></script>
+
+    <!-- javaScript -->
+    <script type=text/javascript src="{{ url_for('static', filename='js/size.js')}}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/goTop.js')}}"></script>
+
+
+</head>
+
+<body>
+
+    <div id="page">
+        <header>
+            <div>
+                <h1>
+                    <a href="/">【保險相關】網路聲量觀測平台</a>
+                </h1>
+            </div>
+            <menu>
+                <ul>
+                    <li>
+                        <a href="/">首頁</a>
+                    </li>
+                    <li>
+                        <a>討論區</a>
+                        <ul>
+                            <li>
+                                <a href="/Awordcloud">討論區關鍵詞</a>
+                            </li>
+                            <li>
+                                <a href="/Acharts">統計結果</a>
+                            </li>
+                            <li>
+                                <a href="/Arelwords">詞與詞關聯</a>
+                            </li>
+                            <li>
+                                <a href="/AsubUs">訂閱小幫手</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>新聞</a>
+                        <ul>
+                            <li>
+                                <a href="/BsetKeywords">設定關鍵字</a>
+                            </li>
+                            <li>
+                                <a href="/Bnews">每日新聞</a>
+                            </li>
+                            <li>
+                                <a href="/BnewsWord">產生新聞重點摘錄檔案</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </menu>
+        </header>
+        <main>
+            <div id="content">
+                <div id="heading">
+                    <img src="{{ url_for('static', filename='img/icon_img/growth.png')}}">
+                    <span>討論關鍵詞 : {{words}}</span>
+                </div>
+                <div id="selector">
+                    <div class="circle">
+                        <a href="/Akeyword/{{words}}/1">日</a>
+                    </div>
+                    <div class="circle">
+                        <a href="/Akeyword/{{words}}/2">週</a>
+                    </div>
+                    <div class="circle">
+                        <a href="/Akeyword/{{words}}/3">月</a>
+                    </div>
+                </div>
+                <div id="gotop">˄</div>
+                {% for dd in data %}
+                    <div class="link_box">
+                        <a href="{{dd.link}}" target="_blank">
+                            <div class="link_left">
+                                <h2>{{dd.title}}</h2>
+                                <h3>{{dd.link}}</h3>
+                                <h4>{{dd.summary}}</h4>
+                            </div>
+                            <div class="link_right">
+                                <h5>{{dd.dt}}</h5>
+                                <h5>文章回覆數:{{dd.countMsg}}</h5>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+        <footer>
+            Copyright Fubon Financial All Rights Reserved.18
+        </footer>
+    </div>
+    <!-- 換頁參考：https://hk.saowen.com/a/041e3115f94d529e3931020a1172c8cf4a94670d4e0a3245d7abac01febaeef6 -->
+</body>
+
+</html>

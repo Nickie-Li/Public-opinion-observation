@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路聲量觀測平台</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico">
+
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/css/cssReset.css">
+    <link rel="stylesheet" href="../static/css/all.css">
+    <link rel="stylesheet" href="../static/css/subUs.css">
+	<link rel="stylesheet" href="../static/css/setkeyword.css">
+    
+
+    <!-- jQuery 1.9.0 -->
+    <!-- <script type=text/javascript src="../static/js/jquery-1.9.0.js"></script> -->
+    <!-- google chartsAPI -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- wordCloud API-->
+    <script type=text/javascript src="../static/js/wordcloud2.js"></script>
+
+    <!-- javaScript -->
+    <script type=text/javascript src="../static/js/size.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+        <header>
+            <div>
+                <h1>
+                    <a href="/">【保險相關】網路聲量觀測平台</a>
+                </h1>
+            </div>
+            <menu>
+                <ul>
+                    <li>
+                        <a href="/">首頁</a>
+                    </li>
+                    <li><a>討論區</a>
+                        <ul>
+                            <li>
+                                <a href="/Awordcloud">討論區關鍵詞</a>
+                            </li>
+                            <li>
+                                <a href="/Acharts">統計結果</a>
+                            </li>
+                            <li>
+                                <a href="/Arelwords">詞與詞關聯</a>
+                            </li>
+                            <li>
+                                <a href="/AsubUs">訂閱小幫手</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>新聞</a>
+                        <ul>
+                            <li>
+                                <a href="/BsetKeywords">設定關鍵字</a>
+                            </li>
+                            <li>
+                                <a href="/Bnews">每日新聞</a>
+                            </li>
+                            <li>
+                                <a href="/BnewsWord">產生新聞重點摘錄檔案</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </menu>
+        </header>
+        <main>
+            <div id="content">
+                <div id="heading">
+                    <img src="../static/img/icon_img/search.png">
+                    <span>設定關鍵字 &#62;</span>
+                </div>
+                <form role ="form" method="POST" action="/BsetKeywords">
+                    <div class="memo">您可以輸入一個以上的關鍵字，以逗號隔開，例如：保險,醫療,人壽</div>
+                    <div id="info">
+                        <h1>請輸入關鍵字：</h1>
+                        <div>
+                            <div>關鍵詞：
+                                <input type="text" name="keyword" placeholder="範例：#醫療 #強制險">
+                            </div>
+                        </div>
+                        <div class="submit"><input type="submit">送出</div>
+						<!-- 上面botton前端Demo用 寫後端的時候再把上面刪掉 下行註解拿掉就可 css:setekyword.css可刪 -->
+						<!-- <input type="submit" name="submit" value="送出"> -->
+                    </div>
+                </form>
+            </div>
+
+        </main>
+        <footer>
+            Copyright Fubon Financial All Rights Reserved.18
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+.cb{
+    height: 90px;
+    width:40px;
+    text-align: center;
+    float: left;
+    line-height: 100px;
+}
+.cb input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    top:40%;
+    cursor: pointer;
+}
+.link_box>div:last-child a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s;
+}
+.link_box>div:last-child{
+    float: right;
+    width:1060px;
+    height: 90px;
+}
+
+#btn_word{
+    position: absolute;
+    top:40px;
+    right:0;
+    width:300px;
+    
+}
+
+#plus{
+    width:30px;
+    height: 30px;
+    border:2px solid rgb(82, 82, 82);
+    border-radius:30px;
+    color:rgb(82, 82, 82);
+    position: absolute;
+    top:120px;
+    left:-45px;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 25px;
+    margin: 5px 0;
+    transition:.3s;
+    cursor: pointer;
+}
+#plus:hover{
+    background-color: rgb(82, 82, 82);
+    color:#fff;
+}
+#plus:active{
+    background-color: rgb(117, 117, 117);
+    color:#fff;
+}

@@ -1,0 +1,27 @@
+.submit a{
+	display:block;
+	width:100%;
+	height:100%;
+	color: #fff;
+	text-align:center;
+	line-height:40px;
+}
+
+.submit{
+    width:100%;
+    height: 40px;
+    background-color: #b81b1b;
+    border:0;
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 14px;
+    color:#fff;
+    transition:0.2s;
+    cursor: pointer;
+}
+.submit:hover{
+    background-color: #ce4747;
+}
+.submit:active{
+    background-color: #a83939;
+}

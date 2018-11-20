@@ -1,0 +1,59 @@
+#content>div:nth-child(2){
+    width:100%;
+    height: auto;
+}
+.m_card{
+    width:100%;
+    height:auto;
+    padding:5px;
+   
+}
+.m_c_title{
+    padding:15px;
+    border-bottom: 2px solid #424242;
+    font-size: 20px;
+    font-weight: bold;
+}
+.chart_div{
+    width:800px;
+    height: 400px;
+    margin: 5px auto;
+    overflow: hidden;
+
+}
+/* .a{
+    color:#580c0d;
+    color:#701112;
+    color:#851516;
+    color:#9b191c;
+    color:#b11d22;
+    color:#c22028;
+    color:#d32730;
+    color:#e72e3b;
+    color:#ff3949;
+    color:#ff505f;
+} */
+/* .b{
+    color:#313131;
+    color:#424242;
+    color:#505050;
+    color:#636363;
+    color:#747474;
+    color:#888888;
+    color:#979696;
+    color:#acacac;
+    color:#bdbdbd;
+    color:#cfcfcf;
+} */
+/* .c{
+    color:rgb(63, 58, 46);
+    color:rgb(78, 72, 57);
+    color:rgb(92, 85, 66);
+    color:rgb(104, 97, 75);
+    color:rgb(117, 110, 85);
+    color:rgb(129, 122, 95);
+    color:rgb(146, 139, 108);
+    color:rgb(161, 153, 120);
+    color:#C5BD99;
+    color:rgb(214, 205, 163);
+} */

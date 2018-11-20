@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路聲量觀測平台</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico">
+
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/css/cssReset.css">
+    <link rel="stylesheet" href="../static/css/all.css">
+    <link rel="stylesheet" href="../static/css/wordcloud.css">
+
+    <!-- jQuery 1.9.0 -->
+    <script type=text/javascript src="../static/js/jquery-1.9.0.js"></script>
+    <!-- google chartsAPI -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- wordCloud API-->
+    <script type=text/javascript src="../static/js/wordcloud2.js"></script>
+
+    <!-- javaScript -->
+    <script type=text/javascript src="../static/js/size.js"></script>
+    <script type=text/javascript src="../static/js/wCloud_click.js"></script>
+    <script>
+
+    </script>
+
+</head>
+
+<body>
+    <div id="page">
+        <header>
+            <div>
+                <h1>
+                    <a href="/">【保險相關】網路聲量觀測平台</a>
+                </h1>
+            </div>
+            <menu>
+                <ul>
+                    <li>
+                        <a href="/">首頁</a>
+                    </li>
+                    <li>
+                        <a>討論區</a>
+                        <ul>
+                            <li>
+                                <a href="/Awordcloud">討論區關鍵詞</a>
+                            </li>
+                            <li>
+                                <a href="/Acharts">統計結果</a>
+                            </li>
+                            <li>
+                                <a href="/Arelwords">詞與詞關聯</a>
+                            </li>
+                            <li>
+                                <a href="/AsubUs">訂閱小幫手</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>新聞</a>
+                        <ul>
+                            <li>
+                                <a href="/BsetKeywords">設定關鍵字</a>
+                            </li>
+                            <li>
+                                <a href="/Bnews">每日新聞</a>
+                            </li>
+                            <li>
+                                <a href="/BnewsWord">產生新聞重點摘錄檔案</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </menu>
+        </header>
+        <main>
+            <div id="content">
+                <div id="heading">
+                    <img src="../static/img/icon_img/growth.png">
+                    <span>討論區關鍵詞 &#62;</span>
+                </div>
+                <div id="t_title">熱門關鍵詞時段查詢條件 &nabla;</div>
+                <form role ="form" method="POST" action="/Awordcloud">
+                <table id="tb" border='0'>
+                    <tr>
+                        <td width="80px">期間選擇</td>
+                        <td>
+                            <input type="radio" name ="freqOption" value="1" onclick="fun()"> 最近一日
+                            <input type="radio" name ="freqOption" value="2" onclick="fun()"> 最近一週
+                            <input type="radio" name ="freqOption" value="3" onclick="fun()"> 最近一月
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="80px">區間選擇</td>
+                        <td>
+                            開始日期:<input type="text" name="start" placeholder="範例：2018/06/06" id= "start">
+                            結束日期:<input type="text" name="end" placeholder="範例：2018/06/16" id = "end">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="送出">
+                        </td>
+                    </tr>
+                </table>
+                </form>
+                
+                <div id="wCloud">
+                    {% for w in cloud %}
+                    <script type=text/javascript src="../static/js/tagcanvas.min.js"></script>
+                    <script type="text/javascript">
+                        //var wei = {{cloud}}
+                        //console.log(wei)
+                        window.onload = function() {
+                          try {
+                            TagCanvas.Start('myCanvas','tags',{
+                              textColour: '#000088',
+                              outlineColour: '#00FFFF',
+                              reverse: true,
+                              depth: 0.3,
+                              maxSpeed: 0.05,
+                              //weightSize: wei,
+                              weight: true, 
+                            });
+                          } catch(e) {
+                            // something went wrong, hide the canvas container
+                            document.getElementById('myCanvasContainer').style.display = 'none';
+                          }
+                        };
+                      </script>
+                    
+                      <div id="tags" style="display: none;">
+                        <ul>
+                          <li><a href="/Akeyword/{{w}}/1" target="_blank">{{w}}</a></li>
+                           
+                        </ul>
+                    </div>
+                    {% endfor %}
+                    <!--<div id="myCanvasContainer">
+                        
+                      </div>-->
+                    <canvas width="500" height="400" id="myCanvas">
+                          <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                        </canvas>
+                </div>
+                <div class="memo" style="text-align: right;">
+                    現在選擇：{{date }}
+                </div>
+            </div>
+        </main>
+        <footer style = 'position: relative'>
+            Copyright Fubon Financial All Rights Reserved.18
+        </footer>
+    </div>
+    
+    <script>
+        function fun(){
+            var freqOption = document.getElementsByName('freqOption');
+            if(freqOption[0].checked){
+                var today = new Date()
+                var t = fundate(today)
+                var yesterday = new Date()
+                yesterday.setDate(yesterday.getDate() - 1);
+                var y = fundate(yesterday);
+
+                document.getElementById("start").value = y;
+                document.getElementById("end").value = t;
+                
+            }
+            else if(freqOption[1].checked){
+                var endday = new Date()
+                endday.setDate(endday.getDate() - endday.getDay());
+                var e = fundate(endday)
+                var endday = new Date()
+                startday = endday;
+                startday.setDate(startday.getDate() - 7);
+                var s = fundate(startday);
+
+                document.getElementById("start").value = s;
+                document.getElementById("end").value = e;
+            }
+            else if(freqOption[2].checked){
+                var startday = new Date()
+                startday.setMonth(startday.getMonth()-1);
+                startday.setDate(1);
+                var s = fundate(startday)
+                var endday = new Date()
+                endday.setDate(0);
+                //endday.setDate(30);
+                var e = fundate(endday);
+
+                document.getElementById("start").value = s;
+                document.getElementById("end").value = e;
+            }
+        }
+        
+        function fundate(date){
+            console.log(date);
+            var datestring = date.getFullYear() + '-';
+            if((date.getMonth()+1) < 10){
+                datestring = datestring + "0" + (date.getMonth()+1) + '-';
+            }
+            else{
+                datestring = datestring + (date.getMonth()+1) + '-';
+            }
+            if((date.getDate()) < 10){
+                datestring = datestring + "0" + date.getDate();
+            }
+            else{
+                datestring = datestring + date.getDate();
+            }
+            return datestring;
+        }
+    </script>
+</body>
+
+</html>

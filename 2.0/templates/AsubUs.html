@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路聲量觀測平台</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico">
+
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/css/cssReset.css">
+    <link rel="stylesheet" href="../static/css/all.css">
+    <link rel="stylesheet" href="../static/css/subUs.css">
+
+    <!-- jQuery 1.9.0 -->
+    <!-- <script type=text/javascript src="../static/js/jquery-1.9.0.js"></script> -->
+    <!-- google chartsAPI -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- wordCloud API-->
+    <script type=text/javascript src="../static/js/wordcloud2.js"></script>
+
+    <!-- javaScript -->
+    <script type=text/javascript src="../static/js/size.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/submitscript.js')}}"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+        <header>
+            <div>
+                <h1>
+                    <a href="/">【保險相關】網路聲量觀測平台</a>
+                </h1>
+            </div>
+            <menu>
+                <ul>
+                    <li>
+                        <a href="/">首頁</a>
+                    </li>
+                    <li>
+                        <a>討論區</a>
+                        <ul>
+                            <li>
+                                <a href="/Awordcloud">討論區關鍵詞</a>
+                            </li>
+                            <li>
+                                <a href="/Acharts">統計結果</a>
+                            </li>
+                            <li>
+                                <a href="/Arelwords">詞與詞關聯</a>
+                            </li>
+                            <li>
+                                <a href="/AsubUs">訂閱小幫手</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>新聞</a>
+                        <ul>
+                            <li>
+                                <a href="/BsetKeywords">設定關鍵字</a>
+                            </li>
+                            <li>
+                                <a href="/Bnews">每日新聞</a>
+                            </li>
+                            <li>
+                                <a href="/BnewsWord">產生新聞重點摘錄檔案</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </menu>
+        </header>
+        <main>
+            <div id="content">
+                <div id="heading">
+                    <img src="../static/img/icon_img/care.png">
+                    <span>訂閱小幫手 &#62;</span>
+                </div>
+                <form method = "post" role="form">
+                    <div id="info">
+                        <h1>訂閱條件</h1>
+                        <div>
+                            <div>
+                                訂閱期間：
+                                <input type="radio" value="1" name="cycle" id="radioCycle">每日
+    
+                                <input type="radio" value="2" name="cycle" id="radioCycle">每週
+    
+                                <input type="radio" value="3" name="cycle" id="radioCycle">每月
+                            </div>
+                            <div>關鍵詞：
+                                <input type="text" name="keyword" id ="keyword" placeholder="範例：醫療,強制險">
+                            </div>
+                            <div>電子信箱：
+                                <input type="text" name="email" id="txtname" placeholder="Please enter a valid email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                            </div>
+                        </div>
+                        <input type="submit" name="submit" value="送出">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            Copyright Fubon Financial All Rights Reserved.18
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路聲量觀測平台</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico')}}">
+
+    <!-- css style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssReset.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css')}}">
+
+    <!-- jQuery 1.9.0 -->
+    <script type=text/javascript src="{{url_for('static', filename='js/jquery-1.9.0.js') }}"></script>
+    <!-- google chartsAPI -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- wordCloud API-->
+    <script type=text/javascript src="{{url_for('static', filename='js/wordcloud2.js') }}"></script>
+
+    <!-- javaScript -->
+
+
+</head>
+
+<body>
+
+    <div id="page">
+        <header>
+            <div>
+                <h1>【保險相關】網路聲量觀測平台</h1>
+            </div>
+            <menu>
+                <ul>
+                    <li><a href="/">首頁</a></li>
+                    <li><a href="/Awordcloud">觀看討論區關鍵詞</a></li>
+                    <li><a href="/Acharts">觀看統計結果</a>
+                        <ol>
+                            <li><a href="/BsetKeywords">熱門關鍵字</a></li>
+                            <li><a href="/Arelwords">詞與詞關聯</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="/AsubUs">訂閱小幫手</a></li>
+                </ul>
+            </menu>
+        </header>
+        <main>
+
+        </main>
+    </div>
+</body>
+
+</html>

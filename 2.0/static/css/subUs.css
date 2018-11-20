@@ -1,0 +1,56 @@
+/* table */
+/* table{
+    width:100%;
+    margin: 20px auto;
+}
+th{
+    text-align: left;
+    border-bottom: 2px solid #424242;
+    font-weight: 900;
+}
+td,th{
+    padding:15px;  
+    color:#424242;
+    font-size: 16px;
+}
+td{
+    text-align: center;
+}
+td:nth-child(2){
+    text-align:left;
+}
+tr{
+    border-bottom: 1px solid #adadad;
+}
+tr:last-child,tr:nth-last-child(2){
+    border: 0;
+}
+tr:last-child td{
+    padding:0;
+} */
+/* table,th,tr,td{outline: 1px solid;} */
+
+/* form info */
+form{
+    clear:left;
+}
+#info{
+    width:100%;
+    height: auto;
+    /* text-align: center; */
+}
+#info h1{
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom:2px solid #424242;
+    padding:15px;
+}
+#info div div{
+    padding:15px;
+}
+#info div{
+    width:900px;
+    margin:0 auto;
+}
+
